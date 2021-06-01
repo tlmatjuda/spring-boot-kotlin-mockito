@@ -1,11 +1,11 @@
-package com.toob.koot.springbootkotlinmockito
+package com.toob.koot.unitfour.mockito
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringBootKotlinMockitoApplication
+open class UnitFourMockitoApp
 
 fun main(args: Array<String>) {
-	runApplication<SpringBootKotlinMockitoApplication>(*args)
+    runApplication<UnitFourMockitoApp>(*args)
 }
