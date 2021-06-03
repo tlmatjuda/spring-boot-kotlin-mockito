@@ -1,5 +1,6 @@
 package com.toob.koot.unitfour.mockito.api
 
+import com.toob.koot.unitfour.mockito.Task
 import com.toob.koot.unitfour.mockito.service.FourthMockitoService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -17,14 +18,20 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/mockito")
 class FourthMockController(val fourthMockitoService: FourthMockitoService) {
 
-    @GetMapping("/junit-four")
+    @GetMapping("/junit-four/service-call")
     fun invokeServiceLevelOperation(): String {
         return fourthMockitoService.doWorkHere()
     }
 
-    @GetMapping("/junit-four")
+    @GetMapping("/junit-four/service/repository-call")
     fun invokeDaoLevelOperation(): String {
         return fourthMockitoService.fetchText()
+    }
+
+    @GetMapping("/junit-four/tasks")
+    fun fetchAllTasks(): List<Task> {
+        val fetchAllTasks = fourthMockitoService.fetchAllTasks()
+        return fetchAllTasks
     }
 
 }

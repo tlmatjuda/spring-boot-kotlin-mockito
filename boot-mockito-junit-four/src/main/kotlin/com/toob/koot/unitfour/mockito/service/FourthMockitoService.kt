@@ -1,7 +1,7 @@
 package com.toob.koot.unitfour.mockito.service
 
+import com.toob.koot.unitfour.mockito.Task
 import com.toob.koot.unitfour.mockito.dao.FourthMockitoRepository
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 
@@ -18,6 +18,10 @@ class FourthMockitoService (val fourthMockitoRepository: FourthMockitoRepository
 
     override fun doWorkHere(): String {
         return "I Serve With JUNIT 4 & Pure Mockito"
+    }
+
+    override fun fetchAllTasks(): List<Task> {
+        return fourthMockitoRepository.findAllTasks()
     }
 
     fun fetchText(): String {

@@ -1,5 +1,7 @@
 package com.toob.koot.unitfour.mockito.service
 
+import com.toob.koot.unitfour.mockito.Task
+
 
 /**
  * @author: Thabo Lebogang Matjuda
@@ -11,5 +13,7 @@ package com.toob.koot.unitfour.mockito.service
 interface IFourthMockitoService {
 
     fun doWorkHere(): String
+
+    fun fetchAllTasks(): List<Task>
 
 }
