@@ -46,9 +46,6 @@ class FourthMockControllerTest {
     @SpyBean
     lateinit var service: FourthMockitoService
 
-    @Autowired
-    lateinit var controller: FourthMockController
-
 
     @Test
     fun `Test That, We Can Invoke REST With Mocked Service, ( Mocked String Response )`() {
