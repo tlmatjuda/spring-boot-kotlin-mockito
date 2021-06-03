@@ -17,7 +17,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
-import kotlin.reflect.KClass
 
 
 /**
@@ -83,7 +82,10 @@ class FourthMockControllerTest {
 
         // We expect this to be an array since it's a List from Kotlin Side
         httpResponse.andExpect( jsonPath("$").isArray)
-        httpResponse.andExpect( content().json( convertObjectToJsonString( EXPECTED_MOCKED_LIST), true))
+
+        // The Json Structure and Values we expected as a whole
+        val EXPECTED_MOCKED_LIST_AS_JSON_TEXT  = toJsonText(EXPECTED_MOCKED_LIST)
+        httpResponse.andExpect( content().json( EXPECTED_MOCKED_LIST_AS_JSON_TEXT, true))
     }
 
 
@@ -92,7 +94,7 @@ class FourthMockControllerTest {
      * We do this so that we can Assert / Match it up with the HTTP REST Response we go
      */
     @Throws( JsonProcessingException::class)
-    private fun convertObjectToJsonString( anyJson: Any): String {
+    private fun toJsonText( anyJson: Any): String {
         val mapper = jacksonObjectMapper()
         val writeValueAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(anyJson)
         return writeValueAsString
