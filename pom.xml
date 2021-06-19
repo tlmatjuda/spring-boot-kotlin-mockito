@@ -6,6 +6,7 @@
 
 	<modules>
 		<module>boot-mockito-junit-four</module>
+		<module>boot-mockito-junit-five</module>
 	</modules>
 
 	<parent>
